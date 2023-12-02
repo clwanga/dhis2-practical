@@ -1,0 +1,163 @@
+<div class="text-center bg-sky-100 w-full pt-14 pb-10">
+  <h1 class="mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl dark:text-white">
+    Weather Application
+  </h1>
+  <p
+    class="mb-6 text-sm font-normal text-gray-500 sm:px-16 xl:px-48 dark:text-gray-400"
+  >
+    Simply enter the city name in the search box below and get the weather details 
+  </p>
+  <div class="justify-center pt-8 px-96">
+    <form>
+      <label
+        for="default-search"
+        class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+        >Search</label
+      >
+      <div class="relative">
+        <div
+          class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+        >
+          <svg
+            class="w-4 h-4 text-gray-500 dark:text-gray-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 20 20"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+            />
+          </svg>
+        </div>
+        <input
+          type="search"
+          id="default-search"
+          class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Enter city name"
+          required
+          #cityName
+        />
+        <button
+          type="submit"
+          class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          (click)="onButtonClick(cityName.value)"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="flex justify-center mt-6 h-[480px]" *ngIf="weatherDetails">
+    <div class="w-full max-w-md p-4 bg-gray-100 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex items-center justify-between mb-4">
+            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">{{weatherDetails.name}}</h5>
+            <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                {{weatherDetails.sys.country}}
+            </a>
+       </div>
+       <div class="flow-root">
+            <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                <li class="py-3 sm:py-4">
+                    <div class="flex items-center">
+                        <!-- <div class="flex-shrink-0">
+                            <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Neil image">
+                        </div> -->
+                        <div class="flex-1 min-w-0 ms-4">
+                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                Temperature
+                            </p>
+                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                Measure of hotness or coldness
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                            {{weatherDetails.main.temp}}
+                        </div>
+                    </div>
+                </li>
+                <li class="py-3 sm:py-4">
+                    <div class="flex items-center ">
+                        <!-- <div class="flex-shrink-0">
+                            <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image">
+                        </div> -->
+                        <div class="flex-1 min-w-0 ms-4">
+                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                Wind speed
+                            </p>
+                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                Wind speed or wind flow speed
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                            {{weatherDetails.wind.speed}}
+                        </div>
+                    </div>
+                </li>
+                <li class="py-3 sm:py-4">
+                    <div class="flex items-center">
+                        <!-- <div class="flex-shrink-0">
+                            <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-2.jpg" alt="Michael image">
+                        </div> -->
+                        <div class="flex-1 min-w-0 ms-4">
+                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                Humidity
+                            </p>
+                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                Concentration of water vapour present in air
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                            {{weatherDetails.main.humidity}}
+                        </div>
+                    </div>
+                </li>
+                <li class="py-3 sm:py-4">
+                    <div class="flex items-center ">
+                        <!-- <div class="flex-shrink-0">
+                            <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-4.jpg" alt="Lana image">
+                        </div> -->
+                        <div class="flex-1 min-w-0 ms-4">
+                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                Weather Description
+                            </p>
+                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                Explains more on the current weather condition
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                            {{weatherDetails.weather[0].description}}
+                        </div>
+                    </div>
+                </li>
+                <li class="pt-3 pb-0 sm:pt-4">
+                    <div class="flex items-center ">
+                        <!-- <div class="flex-shrink-0">
+                            <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="Thomas image">
+                        </div> -->
+                        <div class="flex-1 min-w-0 ms-4">
+                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                Timezone
+                            </p>
+                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                A range of longitudes where a common standard time is used
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                            {{weatherDetails.timezone}}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+       </div>
+    </div>
+</div>
+
+
