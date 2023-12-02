@@ -7,7 +7,7 @@ import { WeatherResponse } from "../Models/WeatherResponse";
     providedIn: 'root'
   })
 export class APIRequest{
-    public apiKey:string  = "70c8b3004ccba1ac189e8d627581ced1";
+    
     baseUrl:string = "https://api.openweathermap.org";
 
     constructor(private http: HttpClient){} 
