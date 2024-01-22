@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { WeatherResponse } from '../Models/WeatherResponse';
-import { APIRequest } from '../Services/apiRequests.service';
 import { HotToastService } from '@ngneat/hot-toast';
+import { APIRequest } from '../Services/apiRequests.service';
+import { WeatherResponse } from '../Models/WeatherResponse';
 
 @Component({
   selector: 'app-header',
@@ -26,9 +26,6 @@ export class HeaderComponent {
       },
       error(err){
         console.log(err)
-      },
-      complete() {
-        
       }
     });
   }
