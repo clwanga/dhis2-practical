@@ -34,9 +34,9 @@ export class HeaderComponent  implements OnInit{
     this.showJokes =false;
 
     this.api.getWeatherDetails(name).pipe(this.toast.observe({
-      loading: 'Loading details..',
+      loading: 'Loading weather details...',
       success: 'Done!',
-      error: 'Not Found'
+      error: 'Not Found. Or An error occurred !'
     })).subscribe({
       next:(response: WeatherResponse) => {
         this.weatherDetails = response;
