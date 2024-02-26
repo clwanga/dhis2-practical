@@ -1,4 +1,4 @@
-# dhis2-practical
+# weather-app
 
 ##An application to assist in understanding a particular location weather details 
 
@@ -9,4 +9,4 @@
 #Used Tailwind and Flowbite for styling
 #Used toaster
 
-#Used openWeather API , sign up and get an key and include it in the endpoint url
+#Used openWeather API ,
